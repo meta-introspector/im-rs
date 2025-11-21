@@ -235,7 +235,7 @@ impl<A: BTreeValue> Node<A> {
         }
     }
 
-    pub(crate) fn lookup_prev<'a, BK>(&'a self, key: &BK) -> Option<&A>
+    pub(crate) fn lookup_prev<'a, BK>(&'a self, key: &BK) -> Option<&'a A>
     where
         BK: Ord + ?Sized,
         A::Key: Borrow<BK>,
@@ -253,7 +253,7 @@ impl<A: BTreeValue> Node<A> {
         }
     }
 
-    pub(crate) fn lookup_next<'a, BK>(&'a self, key: &BK) -> Option<&A>
+    pub(crate) fn lookup_next<'a, BK>(&'a self, key: &BK) -> Option<&'a A>
     where
         BK: Ord + ?Sized,
         A::Key: Borrow<BK>,
@@ -274,7 +274,7 @@ impl<A: BTreeValue> Node<A> {
         &'a mut self,
         pool: &Pool<Node<A>>,
         key: &BK,
-    ) -> Option<&mut A>
+    ) -> Option<&'a mut A>
     where
         A: Clone,
         BK: Ord + ?Sized,
@@ -300,7 +300,7 @@ impl<A: BTreeValue> Node<A> {
         &'a mut self,
         pool: &Pool<Node<A>>,
         key: &BK,
-    ) -> Option<&mut A>
+    ) -> Option<&'a mut A>
     where
         A: Clone,
         BK: Ord + ?Sized,

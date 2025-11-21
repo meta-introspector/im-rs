@@ -367,7 +367,7 @@ where
     /// the two sets, minus the number of elements belonging to nodes
     /// shared between them)
     #[must_use]
-    pub fn diff<'a>(&'a self, other: &'a Self) -> DiffIter<'_, A> {
+    pub fn diff<'a>(&'a self, other: &'a Self) -> DiffIter<'a, A> {
         DiffIter {
             it: NodeDiffIter::new(&self.root, &other.root),
         }
