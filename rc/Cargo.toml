@@ -55,3 +55,10 @@ proptest-derive = "0.3"
 
 ["package.metadata.docs.rs"]
 version_check = "0.9"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = [
+    'cfg(has_specialisation)',
+    'cfg(threadsafe)',
+    'cfg(target_pointer_width, values("128", "32", "64"))',
+]}
